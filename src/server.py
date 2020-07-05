@@ -62,13 +62,13 @@ class serverHandler(BaseHTTPRequestHandler):
 			x = int(postvars['x'][0])
 			y = int(postvars['y'][0])
 			z = int(postvars['z'][0])
-			quad = str(postvars['quad'][0])
+			quad = str(postvars['quad'][0].decode("utf-8"))
 			timestamp = int(postvars['timestamp'][0])
-			outputDirectory = str(postvars['outputDirectory'][0])
-			outputFile = str(postvars['outputFile'][0])
-			outputType = str(postvars['outputType'][0])
+			outputDirectory = str(postvars['outputDirectory'][0].decode("utf-8"))
+			outputFile = str(postvars['outputFile'][0].decode("utf-8"))
+			outputType = str(postvars['outputType'][0].decode("utf-8"))
 			outputScale = int(postvars['outputScale'][0])
-			source = str(postvars['source'][0])
+			source = str(postvars['source'][0].decode("utf-8"))
 
 			replaceMap = {
 				"x": str(x),
@@ -127,16 +127,16 @@ class serverHandler(BaseHTTPRequestHandler):
 			return
 			
 		elif parts.path == '/start-download':
-			outputType = str(postvars['outputType'][0])
+			outputType = str(postvars['outputType'][0].decode("utf-8"))
 			outputScale = int(postvars['outputScale'][0])
-			outputDirectory = str(postvars['outputDirectory'][0])
-			outputFile = str(postvars['outputFile'][0])
+			outputDirectory = str(postvars['outputDirectory'][0].decode("utf-8"))
+			outputFile = str(postvars['outputFile'][0].decode("utf-8"))
 			minZoom = int(postvars['minZoom'][0])
 			maxZoom = int(postvars['maxZoom'][0])
 			timestamp = int(postvars['timestamp'][0])
-			bounds = str(postvars['bounds'][0])
+			bounds = str(postvars['bounds'][0].decode("utf-8"))
 			boundsArray = map(float, bounds.split(","))
-			center = str(postvars['center'][0])
+			center = str(postvars['center'][0].decode("utf-8"))
 			centerArray = map(float, center.split(","))
 
 			replaceMap = {
@@ -164,16 +164,16 @@ class serverHandler(BaseHTTPRequestHandler):
 			return
 			
 		elif parts.path == '/end-download':
-			outputType = str(postvars['outputType'][0])
+			outputType = str(postvars['outputType'][0].decode("utf-8"))
 			outputScale = int(postvars['outputScale'][0])
-			outputDirectory = str(postvars['outputDirectory'][0])
-			outputFile = str(postvars['outputFile'][0])
+			outputDirectory = str(postvars['outputDirectory'][0].decode("utf-8"))
+			outputFile = str(postvars['outputFile'][0].decode("utf-8"))
 			minZoom = int(postvars['minZoom'][0])
 			maxZoom = int(postvars['maxZoom'][0])
 			timestamp = int(postvars['timestamp'][0])
-			bounds = str(postvars['bounds'][0])
+			bounds = str(postvars['bounds'][0].decode("utf-8"))
 			boundsArray = map(float, bounds.split(","))
-			center = str(postvars['center'][0])
+			center = str(postvars['center'][0].decode("utf-8"))
 			centerArray = map(float, center.split(","))
 
 			replaceMap = {
